@@ -22,6 +22,20 @@ Use the socket connection and set your socket to your adaptiation of this value 
 
 Please let us know in Discord if this didn't work as we have not written these docs with an install of flood at hand.
 
+##Connecting to Deluge
+
+You will need to use the Daemon port from WebUI > Preferences > Daemon and note down the Daemon port number or using SSH run this to print your Daemon port: `cat /home/$USERNAME/.config/deluge/core.conf | grep daemon_port`, Once obtained Host is to be `127.0.0.1` and port is to be your Daemon port number you found earlier. Username and Password should be the ones you use for Swizzin.
+
+##Connecting to qBittorrent
+
+You will need to use the WebUI port obtained from Settings > Web UI > Port, then set the URL to `127.0.0.1:PORT` replacing PORT with your port number from the settings.
+
+##Connecting to Transmission
+
+You will need to use the Daemon port obtained from running `grep rpc-port /home/$USERNAME/.config/transmission-daemon/settings.json`, the URL is to be `127.0.0.1:PORT/transmission/rpc`, Username and Password should be the ones you use for Swizzin.
+
+
+
 
 import MissingDocs from '../snippets/missingdocs.md';
 
