@@ -40,6 +40,12 @@ Example:
 ```bash
 sudo -H su -c 'bash <(wget -O- -q https://git.io/swizzin-setup)'
 ```
+## Some notes on escalating to root user
+If you did not log into your server with a root login, the method you use to escalate to root will directly influence the success of your installation. Certain distributions and commands may not correctly provide you with a full root login shell when you use them, so please familiarize yourself with the following if they apply to you.
+#### The difference between `su` and `su -`
+Since the inclusion of mandatory cracklib checks, we've seen an uptick in users having an issue passing the cracklib check as the installer can't seem to find the `cracklib-check` binary despite it being installed. This is because `/sbin` and derivative paths have not been properly set due to your chosen method of escalation. If you have troubles passing cracklib, then there's a very good chance you escalated to root with `su` instead of `su -`. `su` simply changes you to root user while `su -` goes through the entire login process and correctly resets all environmental variables as if you had logged in directly as root. Please always use `su -` when interacting with swizzin if this is your chosen method of privilege escalation.
+
+More info [here](https://unix.stackexchange.com/questions/7013/why-do-we-use-su-and-not-just-su)
 
 ### Setup
 
